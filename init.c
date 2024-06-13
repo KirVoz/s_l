@@ -6,18 +6,11 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:27:00 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/13 14:30:14 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:14:46 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	exit_error(char *error)
-{
-	ft_putstr_fd("ERROR - ", 2);
-	ft_putstr_fd(error, 2);
-	exit (errno);
-}
 
 void	free_map(char **map)
 {
@@ -37,8 +30,8 @@ void	free_map(char **map)
 
 void	check_map(t_s *game, int fd)
 {
-    char    *line;
     char    **map_line;
+    char    *line;
 	char	*buf;
 	char 	*tmp;
 
@@ -61,6 +54,15 @@ void	check_map(t_s *game, int fd)
 	check_walls(map_line);
     ch_faktors(map_line, game);
 	flood_fill(game, map_line);
+	free_map(map_line);
+}
+t_s_p   init_pointers(void)
+{
+    t_s_p   pointers;
+
+    pointers.mlx = NULL;
+    pointers.window = NULL;
+    return (pointers);
 }
 
 t_s	new_init(void)
@@ -74,6 +76,7 @@ t_s	new_init(void)
     game.width = 0;
     game.x = 0;
     game.y = 0;
+	game.point = init_pointers();
     return (game);
 }
 

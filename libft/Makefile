@@ -29,6 +29,7 @@ SRC = str/ft_atoi.c \
 	  str/ft_itoa.c \
 	  str/ft_strmapi.c \
 	  str/ft_striteri.c \
+	  str/ft_strncpy.c \
 	  fd/ft_putchar_fd.c \
 	  fd/ft_putstr_fd.c \
 	  fd/ft_putendl_fd.c \

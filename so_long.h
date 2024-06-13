@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:21:13 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/13 14:34:32 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:36:52 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,29 @@
 # include "./libft/libft.h"
 # include <errno.h>
 
+typedef struct pointers
+{
+	void	*mlx;
+	void 	*window;
+	
+}			t_s_p;
+
+
 typedef struct s_struct
 {
-	int	x;
-	int y;
-	int	hight;
-	int	width;
-	int	player;
-	int	collectabe;
-	int	exit;
+	int		x;
+	int		y;
+	int		hight;
+	int		width;
+	int		player;
+	int		collectabe;
+	int		exit;
+	t_s_p	point;
 }			t_s;
-
-///////////init.c////////
+///////////so_long.c/////
 void	exit_error(char *error);
+///////////init.c////////
+t_s_p   init_pointers(void);
 void	free_map(char **map);
 void	check_map(t_s *game, int fd);
 t_s		new_init(void);
@@ -47,8 +57,9 @@ void	check_walls(char **map);
 char	**create_map_copy(t_s *game, char **map);
 void	flood(char **map, int y, int x, t_s *game);
 void	flood_fill(t_s *game, char **map);
+///////////start_game.c//
 
-
+# define SIZE 32
 
 # define ARG_ERROR "Incorect ammount of arguments.\n"
 # define FD_ERROR "FD Error.\n"

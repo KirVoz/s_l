@@ -6,14 +6,15 @@
 #    By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/11 14:11:04 by kvoznese          #+#    #+#              #
-#    Updated: 2024/06/13 14:42:11 by kvoznese         ###   ########.fr        #
+#    Updated: 2024/06/13 17:32:41 by kvoznese         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	so_long.c \
 		parser.c \
 		init.c \
-		flood_fill.c
+		flood_fill.c \
+		star_game.c
 
 OBJS = $(SRC:.c=.o)
 
