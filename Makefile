@@ -6,11 +6,14 @@
 #    By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/11 14:11:04 by kvoznese          #+#    #+#              #
-#    Updated: 2024/06/11 14:12:11 by kvoznese         ###   ########.fr        #
+#    Updated: 2024/06/13 14:42:11 by kvoznese         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	parser.c
+SRC =	so_long.c \
+		parser.c \
+		init.c \
+		flood_fill.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -31,22 +34,24 @@ LIBFT_DIR = libft
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(MAKE) bonus -C libft
-	$(MAKE) -C libft
-	$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a -o $(NAME)
-
+#	$(MAKE) bonus -C libft
+	@$(MAKE) -C libft
+	@$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a -o $(NAME)
+	@echo "Completed! 🤠"
+	
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 fclean: clean
-	$(RM) $(NAME)
-	$(MAKE) fclean -C libft
-
+	@$(RM) $(NAME)
+	@$(MAKE) fclean -C libft
+	@echo "Completed! 😈"
+	
 clean:
-	$(RM) - $(NAME)
-	make clean -C libft
-	$(RM) -rf libft/libft.a
-	rm -f ${OBJS}
+	@$(RM) - $(NAME)
+	@make clean -C libft
+	@$(RM) -rf libft/libft.a
+	@rm -f ${OBJS}
 
 re: 	fclean all
 

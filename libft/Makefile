@@ -64,20 +64,20 @@ CFLAGS = -Wall -Wextra -Werror -g
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	${AR} ${NAME} ${OBJS}
+	@${AR} ${NAME} ${OBJS}
 
 %.o: %.c
-	${CC} ${CFLAGS} -c $< -o $@
+	@${CC} ${CFLAGS} -c $< -o $@
 
 #bonus: ${BONUS_OBJS}
 #	${AR} -r ${NAME} $?
 
 clean:
-	rm -f ${OBJS} 
+	@rm -f ${OBJS} 
 #	${BONUS_OBJS}
 
 fclean: clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re: fclean all
 
