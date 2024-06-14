@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:19:05 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/13 17:30:40 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:12:24 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	main(int ac, char **av)
     if (ac != 2)
         exit_error (ARG_ERROR);
     init(av, &game);
-	start_game(&game);
+	system ("leaks so_long");
+	//start_game(&game);
     printf("%d-coll, %d-exit, %d-player, %d-hight, %d-width, %d-x, %d-y\n", game.collectabe, game.exit, game.player, game.hight, game.width, game.x, game.y);
     return (0);
 }

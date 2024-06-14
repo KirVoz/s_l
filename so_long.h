@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:21:13 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/13 17:36:52 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:51:01 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include "./libft/libft.h"
 # include <errno.h>
+# include <stdbool.h>
 
 typedef struct pointers
 {
@@ -30,6 +31,7 @@ typedef struct pointers
 
 typedef struct s_struct
 {
+	int		temp;
 	int		x;
 	int		y;
 	int		hight;
@@ -69,5 +71,6 @@ void	flood_fill(t_s *game, char **map);
 # define SIMB_ERROR "Forbiden simbols on map.\n"
 # define REC_ERROR "Not rectanlular map.\n"
 # define LETTER_ERROR "Incorect ammount of letters (P,C,E).\n"
+# define BLOCKED_ERROR "Exit is blocked.\n"
 
 #endif

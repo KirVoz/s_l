@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:27:00 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/13 17:14:46 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:39:22 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ t_s	new_init(void)
 {
     t_s game;
 
-    game.collectabe = 0;
+	game.temp = 0;
+	game.collectabe = 0;
     game.exit = 0;
     game.hight = 0;
     game.player = 0;
