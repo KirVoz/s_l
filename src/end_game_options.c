@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_game.c                                       :+:      :+:    :+:   */
+/*   end_game_options.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 17:31:38 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/13 17:37:16 by kvoznese         ###   ########.fr       */
+/*   Created: 2024/06/17 18:32:16 by kvoznese          #+#    #+#             */
+/*   Updated: 2024/06/17 19:10:34 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-void	start_game(t_s *game)
+int	end_game(t_s *game)
 {
-	game->point.mlx = mlx_init();
-	game->point.window = mlx_new_window(game->point.mlx, (SIZE * game->hight),
-			(SIZE * game->width), "Pepe's adventure");
+		destroy_images(game);
+		mlx_clear_window(game->point.mlx, game->point.window);
+		mlx_destroy_window(game->point.mlx, game->point.window);
+		free_map(game->map);
+		ft_putstr_fd("GAME ENDED\n", 1);
+		exit(errno);
+		return (0);
 }

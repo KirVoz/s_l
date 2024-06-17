@@ -6,11 +6,11 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:45:12 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/13 14:32:44 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/17 16:44:24 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ch_col_ex_p(char **map, t_s *game)
 {

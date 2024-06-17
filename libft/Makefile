@@ -69,6 +69,7 @@ ${NAME}: ${OBJS}
 
 %.o: %.c
 	@${CC} ${CFLAGS} -c $< -o $@
+	@echo "Compiling libft..."
 
 #bonus: ${BONUS_OBJS}
 #	${AR} -r ${NAME} $?

@@ -6,11 +6,11 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:27:00 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/14 17:39:22 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/17 21:55:45 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	free_map(char **map)
 {
@@ -54,21 +54,35 @@ void	check_map(t_s *game, int fd)
 	check_walls(map_line);
     ch_faktors(map_line, game);
 	flood_fill(game, map_line);
-	free_map(map_line);
+	game->map = map_line;
 }
 t_s_p   init_pointers(void)
 {
     t_s_p   pointers;
 
-    pointers.mlx = NULL;
-    pointers.window = NULL;
-    return (pointers);
+	pointers.mlx = NULL;
+	pointers.window = NULL;
+	pointers.arrow = NULL;
+	pointers.ground = NULL;
+	pointers.collect = NULL;
+	pointers.wall = NULL;
+	pointers.exit = NULL;
+	pointers.up = NULL;
+	pointers.left = NULL;
+	pointers.right = NULL;
+	pointers.play = NULL;
+	pointers.start_sign = NULL;
+	pointers.exit_sign = NULL;
+	pointers.finish_move = NULL;
+	return (pointers);
 }
 
 t_s	new_init(void)
 {
     t_s game;
 
+	game.arrow = 0;
+	game.moves = 0;
 	game.temp = 0;
 	game.collectabe = 0;
     game.exit = 0;

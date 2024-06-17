@@ -6,22 +6,22 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:27:25 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/14 18:33:45 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/17 22:07:28 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 char	**create_map_copy(t_s *game, char **map)
 {
 	char	**map_copy;
 	int		i;
 
-	i = 0;
-	map_copy = malloc(sizeof(char *) * game->hight + 1);
+	i = -1;
+	map_copy = malloc(sizeof(char *) * (game->hight + 1));
 	if (!map_copy)
 		exit_error(MALLOC_ERROR);
-	while (game->hight > i)
+	while (++i < game->hight)
 	{
 		map_copy[i] = malloc(sizeof(char) * (game->width + 1));
 		if (!map_copy[i])
@@ -31,7 +31,6 @@ char	**create_map_copy(t_s *game, char **map)
 			free(map_copy);
 		}
 		ft_strncpy(map_copy[i], map[i], game->width + 1);
-		i++;
 	}
 	map_copy[i] = NULL;
 	return (map_copy);
