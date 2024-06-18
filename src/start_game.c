@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:57:20 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/17 21:53:05 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:55:43 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ void	init_xpms(t_s *game)
 	game->point.exit_sign = xpm_image(game, "./assets/exit_sign.xpm");
 	game->point.start_sign = xpm_image(game, "./assets/start_sign.xpm");
 	game->point.arrow = xpm_image(game, "./assets/arrow.xpm");
+	game->point.bonus_background = xpm_image(game, "./assets/bonus_back.xpm");
+	game->point.enemy_up = xpm_image(game, "./assets/fox_up.xpm");
+	game->point.enemy_right = xpm_image(game, "./assets/fox_right.xpm"); 
+	game->point.enemy_down = xpm_image (game, "./assets/fox_down.xpm");
+	game->point.enemy_left = xpm_image(game, "./assets/fox_left.xpm");
+	game->point.enemy_still = xpm_image(game, "./assets/collectable.xpm");
 }
 
 void	init_map_images(t_s *game)
@@ -70,6 +76,8 @@ void	init_map_images(t_s *game)
 				put_image(game, game->point.collect, y, x);
 			else if (game->map[x][y] == 'E')
 				put_image(game, game->point.exit, y, x);
+			else if (game->map[x][y] == 'e')
+				put_image(game, game->point.enemy_still, y, x);
 			y++;
 		}
 		x++;

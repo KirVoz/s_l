@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   end_game_options.c                                 :+:      :+:    :+:   */
+/*   ft_strrncmp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/17 18:32:16 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/18 17:38:40 by kvoznese         ###   ########.fr       */
+/*   Created: 2024/06/18 16:53:05 by kvoznese          #+#    #+#             */
+/*   Updated: 2024/06/18 16:58:12 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../libft.h"
 
-int	end_game(t_s *game)
+int	ft_strrncmp(const char *s1, const char *s2, int n)
 {
-	destroy_images(game);
-	mlx_clear_window(game->point.mlx, game->point.window);
-	mlx_destroy_window(game->point.mlx, game->point.window);
-	free_map(game->map);
-	ft_putstr_fd("GAME ENDED\n", 1);
-	exit(errno);
+	int	len1;
+	int	len2;
+
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	if (!s1 || !s2 || n < 0)
+		return (0);
+	while ((s1[--len1] == s2[--len2]) && (n > 0))
+		n--;
+	if (n == 0)
+		return (1);
 	return (0);
 }

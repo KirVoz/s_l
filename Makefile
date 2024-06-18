@@ -6,7 +6,7 @@
 #    By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/11 14:11:04 by kvoznese          #+#    #+#              #
-#    Updated: 2024/06/17 21:50:44 by kvoznese         ###   ########.fr        #
+#    Updated: 2024/06/18 19:07:06 by kvoznese         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRC =	src/so_long.c \
 		src/start_game.c \
 		src/put_images.c \
 		src/moves.c \
-		src/move_helper.c
+		src/move_helper.c \
+		src/enemy.c
 
 
 OBJS = $(SRC:.c=.o)

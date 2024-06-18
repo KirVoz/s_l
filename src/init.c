@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:27:00 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/17 21:55:45 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:01:49 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,11 @@ t_s_p   init_pointers(void)
 	pointers.start_sign = NULL;
 	pointers.exit_sign = NULL;
 	pointers.finish_move = NULL;
+	pointers.enemy_up = NULL;
+	pointers.enemy_right = NULL;
+	pointers.enemy_down = NULL;
+	pointers.enemy_left = NULL;
+	pointers.enemy_still = NULL;
 	return (pointers);
 }
 
@@ -81,6 +86,10 @@ t_s	new_init(void)
 {
     t_s game;
 
+	game.loop = 0;
+	game.enemy = 0;
+	game.x_e = 0;
+	game.y_e = 0;
 	game.arrow = 0;
 	game.moves = 0;
 	game.temp = 0;
@@ -102,6 +111,8 @@ t_s	*init(char **av, t_s *game)
 	fd = open(av[1], O_RDONLY);
     if (fd < 0)
         exit_error (FD_ERROR);
+	if (!ft_strrncmp(av[1], ".ber", 4))
+		exit_error (BER_ERROR);
     *game = new_init();
     check_map(game, fd);
     return (game);

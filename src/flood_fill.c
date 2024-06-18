@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:27:25 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/17 22:07:28 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/18 19:14:39 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	flood(char **map, int y, int x, t_s *game)
 	{
 		if (map[y][x] == 'C')
 			game->temp--;
+		if (map[y][x] == 'e')
+			game->enemy--;
 		if (map[y][x] == 'E')
 			game->exit--;
 		map[y][x] = 'X';

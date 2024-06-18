@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:21:13 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/17 20:01:25 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:01:34 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,20 @@ typedef struct pointers
 	void	**exit_sign;
 	void	**start_sign;
 	void	**arrow;
-	
+	void	**bonus_background;
+	void	**enemy_up;
+	void	**enemy_right;
+	void	**enemy_down;
+	void	**enemy_left;
+	void	**enemy_still;
 }			t_s_p;
 
 typedef struct s_struct
 {
+	int		loop;
+	int		enemy;
+	int		x_e;
+	int		y_e;
 	int		arrow;
 	int		moves;
 	int		temp;
@@ -89,14 +98,19 @@ void	destroy_images(t_s *game);
 //moves.c
 void	put_moves(t_s *game);
 void	move(t_s *game, void **player, int direction);
-int key_managment(int keycode, t_s *game);
-int NewFunction(int keycode, t_s *game);
+int 	key_managment(int keycode, t_s *game);
 // move_helper.c
-void change_location_on_map(t_s *game, int direction, int option);
-void is_win(t_s *game, void **player, void **exit, int direction);
+void	change_location_on_map(t_s *game, int direction, int option);
+void	is_win(t_s *game, void **player, void **exit, int direction);
 bool	is_exit(t_s *game, int direction);
 bool	is_wall(t_s *game, int direction);
 void	check_if_collectible(t_s *game);
+// enemy.c
+void	change_enemy_location_on_map(t_s *game, int direction, int option);
+void	ch_enemy(char **map, t_s *game);
+bool	is_wall_enemy(t_s *game, int direction);
+void	move_enemy(t_s *game, void **player, int direction);
+int		enemy(t_s *game);
 
 
 # define LEFT 123
@@ -105,19 +119,14 @@ void	check_if_collectible(t_s *game);
 # define UP 126
 # define ESC 53
 # define ENTER 36
-
-# define SIZE 32
 # define ESC 53
 
-// # define ENTER 15
-// # define UP 87
-// # define DOWN 83
-// # define LEFT 65
-// # define RIGHT 68
+# define SIZE 32
 
-# define TRUE 0
-# define FALSE 1
+# define TRUE 0  //ground
+# define FALSE 1 //wall
 
+# define BER_ERROR "Not '.ber' extension.\n"
 # define ARG_ERROR "Incorect ammount of arguments.\n"
 # define FD_ERROR "FD Error.\n"
 # define COLL_ERROR "Can't reach all collectales.\n"

@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:45:12 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/17 16:44:24 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:26:21 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ch_faktors(char **map, t_s *game)
 {
     ch_h_w(map, game);
     ch_col_ex_p(map, game);
+	ch_enemy(map, game);
 }
 
 void	check_line(char **line)
@@ -82,7 +83,7 @@ void	check_line(char **line)
 		while (line[j][i] != '\0')
 		{
 			if (line[j][i] != '1' && line[j][i] != 'C' && line[j][i] != 'P' 
-			&& line[j][i] != 'E' && line[j][i] != '0')
+			&& line[j][i] != 'E' && line[j][i] != '0' && line[j][i] != 'e')
 				exit_error (SIMB_ERROR);
 			i++;
 		}

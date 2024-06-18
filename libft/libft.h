@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 03:16:28 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/13 16:19:44 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:00:37 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	ft_putnbr_fd(int n, int fd);
 ///////////////NEED/////////////////
 
 int		ft_strcmp(char *s1, char *s2);
+int		ft_strrncmp(const char *s1, const char *s2, int n);
 
 //////////////GNL///////////////////
 
