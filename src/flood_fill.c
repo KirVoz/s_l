@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:27:25 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/18 19:14:39 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:46:33 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,10 @@ char	**create_map_copy(t_s *game, char **map)
 
 void	flood(char **map, int y, int x, t_s *game)
 {
-	while (map[y][x] != '1' && map[y][x] != 'X')
+	while (map[y][x] != '1' && map[y][x] != 'X' && map[y][x] != 'e')
 	{
 		if (map[y][x] == 'C')
 			game->temp--;
-		if (map[y][x] == 'e')
-			game->enemy--;
 		if (map[y][x] == 'E')
 			game->exit--;
 		map[y][x] = 'X';

@@ -6,39 +6,13 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:41:57 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/18 21:28:27 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:07:27 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	change_enemy_location_on_map(t_s *game, int direction, int option)
-{
-	if (direction == LEFT && option == TRUE)
-	{
-		game->map[game->y_e][game->x_e] = '0';
-		game->x_e--;
-		game->map[game->y_e][game->x_e] = 'F';
-	}
-	else if (direction == RIGHT && option == TRUE)
-	{
-		game->map[game->y_e][game->x_e] = '0';
-		game->x_e++;
-		game->map[game->y_e][game->x_e] = 'F';
-	}
-	else if (direction == DOWN && option == TRUE)
-	{
-		game->map[game->y_e][game->x_e] = '0';
-		game->y_e++;
-		game->map[game->y_e][game->x_e] = 'F';
-	}
-	else if (direction == UP && option == TRUE)
-	{
-		game->map[game->y_e][game->x_e] = '0';
-		game->y_e--;
-		game->map[game->y_e][game->x_e] = 'F';
-	}
-}
+
 
 void	ch_enemy(char **map, t_s *game)
 {
@@ -118,8 +92,8 @@ int	enemy(t_s *game)
 	game->enemy = game->loop % speed;
 	random_move = (rand() % 5);
 	if (game->map[game->y][game->x] == game->map[game->y_e][game->x_e])
-		is_win(game, game->point.finish_move, game->point.play, LEFT);
-	if (game->enemy == 0) //тут можно добавить статус игры что бы завершить движения 
+		is_win(game, game->point.finish_move, game->point.play, LEFT, FALSE);
+	if (game->enemy == 0)
 	{
 		if (random_move == 4)
 			move_enemy(game, game->point.enemy_left, LEFT);

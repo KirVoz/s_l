@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 19:25:06 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/18 18:33:03 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:06:19 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,18 @@ void	change_location_on_map(t_s *game, int direction, int option)
 		game->y--;
 }
 
-void	is_win(t_s *game, void **player, void **exit, int direction)
-{
+void	is_win(t_s *game, void **player, void **exit, int direction, int win_lose)
+{	
 	put_image_direction(game, game->point.ground, 0);
 	put_image_direction(game, exit, 0);
 	put_image_direction(game, game->point.ground, direction);
 	put_image_direction(game, player, direction);
 	put_moves(game);
-	ft_putstr_fd("\nYOU WON!!\n but what cost...\n", 1);
+	if (win_lose)
+		ft_putstr_fd("\nYOU LOSE!!\n this is true end...\n", 1);	
+	else
+		ft_putstr_fd("\nYOU WON!!\n but what cost...\n", 1);
 	end_game(game);
-	//put_arrows(game, UP);
-	//mlx_key_hook(game->point.window, restart_game, game);
 }
 
 bool	is_exit(t_s *game, int direction)
@@ -46,7 +47,7 @@ bool	is_exit(t_s *game, int direction)
 	if (game->map[game->y][game->x] == 'E')
 	{
 		if (game->collectabe == 0)
-			is_win(game, game->point.finish_move, game->point.play, LEFT);
+			is_win(game, game->point.finish_move, game->point.play, LEFT, TRUE);
 		change_location_on_map(game, direction, FALSE);
 		return (true);
 	}

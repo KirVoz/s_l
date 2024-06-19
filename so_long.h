@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:21:13 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/18 20:01:34 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:41:46 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	move(t_s *game, void **player, int direction);
 int 	key_managment(int keycode, t_s *game);
 // move_helper.c
 void	change_location_on_map(t_s *game, int direction, int option);
-void	is_win(t_s *game, void **player, void **exit, int direction);
+void	is_win(t_s *game, void **player, void **exit, int direction, int win_lose);
 bool	is_exit(t_s *game, int direction);
 bool	is_wall(t_s *game, int direction);
 void	check_if_collectible(t_s *game);
@@ -137,6 +137,7 @@ int		enemy(t_s *game);
 # define LETTER_ERROR "Incorect ammount of letters (P,C,E).\n"
 # define BLOCKED_ERROR "Exit is blocked.\n"
 # define IMAGE_ERROR "One of your sprites could not be opened.\n"
-
+# define EMPTY_ERROR "Map ERROR.\n"
+# define WOW_ERROR "Stop breaking my game plz).\n"
 
 #endif

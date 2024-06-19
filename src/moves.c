@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 19:04:39 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/18 21:28:13 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:07:44 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,30 @@ int	key_managment(int keycode, t_s *game)
 	return (0);
 }
 
+void	change_enemy_location_on_map(t_s *game, int direction, int option)
+{
+	if (direction == LEFT && option == TRUE)
+	{
+		game->map[game->y_e][game->x_e] = '0';
+		game->x_e--;
+		game->map[game->y_e][game->x_e] = 'F';
+	}
+	else if (direction == RIGHT && option == TRUE)
+	{
+		game->map[game->y_e][game->x_e] = '0';
+		game->x_e++;
+		game->map[game->y_e][game->x_e] = 'F';
+	}
+	else if (direction == DOWN && option == TRUE)
+	{
+		game->map[game->y_e][game->x_e] = '0';
+		game->y_e++;
+		game->map[game->y_e][game->x_e] = 'F';
+	}
+	else if (direction == UP && option == TRUE)
+	{
+		game->map[game->y_e][game->x_e] = '0';
+		game->y_e--;
+		game->map[game->y_e][game->x_e] = 'F';
+	}
+}

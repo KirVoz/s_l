@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:45:12 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/18 18:26:21 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/19 22:41:14 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	check_line(char **line)
 	int	j;
 
 	j = 0;
+	if (!line)
+		exit_error(EMPTY_ERROR);
 	while (line[j] != NULL)
 	{
 		i = 0;
@@ -89,6 +91,8 @@ void	check_line(char **line)
 		}
 		j++;
 	}
+	if (i > 100 || j > 100)
+		exit_error(WOW_ERROR);
 }
 
 void	check_walls(char **map)
@@ -106,7 +110,6 @@ void	check_walls(char **map)
             exit_error (WALL_ERROR);
         j++;
     }
-
     int k = 0;
     while (k < i)
     {
