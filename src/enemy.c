@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:41:57 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/20 18:18:44 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/20 18:33:33 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ void	ch_enemy(t_s *game)
 bool	is_wall_enemy(t_s *game, int direction)
 {
 	if ((direction == LEFT && (game->map[game->y_e][game->x_e - 1] != '1')
-			&& (game->map[game->y_e][game->x_e - 1] != 'C')
-			&& (game->map[game->y_e][game->x_e - 1] != 'E'))
+		&& (game->map[game->y_e][game->x_e - 1] != 'C')
+		&& (game->map[game->y_e][game->x_e - 1] != 'E'))
 		|| (direction == RIGHT && (game->map[game->y_e][game->x_e + 1] != '1')
-			&& (game->map[game->y_e][game->x_e + 1] != 'C')
-			&& (game->map[game->y_e][game->x_e + 1] != 'E'))
+		&& (game->map[game->y_e][game->x_e + 1] != 'C')
+		&& (game->map[game->y_e][game->x_e + 1] != 'E'))
 		|| (direction == DOWN && (game->map[game->y_e + 1][game->x_e] != '1')
-			&& (game->map[game->y_e + 1][game->x_e] != 'C')
-			&& (game->map[game->y_e + 1][game->x_e] != 'E')) || (direction == UP
-			&& (game->map[game->y_e - 1][game->x_e] != '1')
-			&& (game->map[game->y_e - 1][game->x_e] != 'C')
-			&& (game->map[game->y_e - 1][game->x_e] != 'E')))
+		&& (game->map[game->y_e + 1][game->x_e] != 'C')
+		&& (game->map[game->y_e + 1][game->x_e] != 'E')) || (direction == UP
+		&& (game->map[game->y_e - 1][game->x_e] != '1')
+		&& (game->map[game->y_e - 1][game->x_e] != 'C')
+		&& (game->map[game->y_e - 1][game->x_e] != 'E')))
 		return (false);
 	return (true);
 }
