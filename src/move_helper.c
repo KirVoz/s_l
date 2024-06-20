@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 19:25:06 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/20 18:10:37 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/20 20:42:28 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	is_win(t_s *game, void **player, void **exit, int direction)
 	put_image_direction(game, game->point.ground, direction);
 	put_image_direction(game, player, direction);
 	put_moves(game);
-	if (player == game->point.finish_move)
+	if (direction == LEFT)
 		ft_putstr_fd("\nYOU LOSE!!\n this is true end...\n", 1);
 	else
 		ft_putstr_fd("\nYOU WON!!\n but what cost...\n", 1);
@@ -47,7 +47,7 @@ bool	is_exit(t_s *game, int direction)
 	if (game->map[game->y][game->x] == 'E')
 	{
 		if (game->collectabe == 0)
-			is_win(game, game->point.finish_move, game->point.play, LEFT);
+			is_win(game, game->point.finish_move, game->point.play, 1);
 		change_location_on_map(game, direction, FALSE);
 		return (true);
 	}
