@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 19:04:39 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/19 22:07:44 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:58:06 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	put_moves(t_s *game)
 	ft_putnbr_fd(game->moves, 1);
 	ft_putstr_fd("\n", 1);
 	mlx_put_image_to_window(game->point.mlx, game->point.window,
-		game->point.bonus_background, (6 * (SIZE - 1)), game->hight * SIZE );
-	mlx_string_put(game->point.mlx, game->point.window,
-		(SIZE * 6), (game->hight * SIZE) + (SIZE / 2) - 4, 16777215, str);
+		game->point.bonus_background, (6 * (SIZE - 1)), game->hight * SIZE);
+	mlx_string_put(game->point.mlx, game->point.window, (SIZE * 6), (game->hight
+			* SIZE) + (SIZE / 2) - 4, 16777215, str);
 	free(str);
 }
 

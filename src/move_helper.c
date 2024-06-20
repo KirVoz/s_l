@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 19:25:06 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/19 22:06:19 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/20 18:10:37 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 void	change_location_on_map(t_s *game, int direction, int option)
 {
-	if ((direction == LEFT && option == TRUE)
-		|| (direction == RIGHT && option == FALSE))
+	if ((direction == LEFT && option == TRUE) || (direction == RIGHT
+			&& option == FALSE))
 		game->x--;
-	else if ((direction == RIGHT && option == TRUE)
-		|| (direction == LEFT && option == FALSE))
+	else if ((direction == RIGHT && option == TRUE) || (direction == LEFT
+			&& option == FALSE))
 		game->x++;
-	else if ((direction == DOWN && option == TRUE)
-		|| (direction == UP && option == FALSE))
+	else if ((direction == DOWN && option == TRUE) || (direction == UP
+			&& option == FALSE))
 		game->y++;
-	else if ((direction == UP && option == TRUE)
-		|| (direction == DOWN && option == FALSE))
+	else if ((direction == UP && option == TRUE) || (direction == DOWN
+			&& option == FALSE))
 		game->y--;
 }
 
-void	is_win(t_s *game, void **player, void **exit, int direction, int win_lose)
-{	
+void	is_win(t_s *game, void **player, void **exit, int direction)
+{
 	put_image_direction(game, game->point.ground, 0);
 	put_image_direction(game, exit, 0);
 	put_image_direction(game, game->point.ground, direction);
 	put_image_direction(game, player, direction);
 	put_moves(game);
-	if (win_lose)
-		ft_putstr_fd("\nYOU LOSE!!\n this is true end...\n", 1);	
+	if (player == game->point.finish_move)
+		ft_putstr_fd("\nYOU LOSE!!\n this is true end...\n", 1);
 	else
 		ft_putstr_fd("\nYOU WON!!\n but what cost...\n", 1);
 	end_game(game);
@@ -47,7 +47,7 @@ bool	is_exit(t_s *game, int direction)
 	if (game->map[game->y][game->x] == 'E')
 	{
 		if (game->collectabe == 0)
-			is_win(game, game->point.finish_move, game->point.play, LEFT, TRUE);
+			is_win(game, game->point.finish_move, game->point.play, LEFT);
 		change_location_on_map(game, direction, FALSE);
 		return (true);
 	}

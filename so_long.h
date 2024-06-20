@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:21:13 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/19 22:41:46 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/20 18:21:22 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,15 @@ void	check_map(t_s *game, int fd);
 t_s		new_init(void);
 t_s		*init(char **av, t_s *game);
 ///////////parser.c//////
-void	ch_col_ex_p(char **map, t_s *game);
-void	ch_h_w(char **map, t_s *game);
-void	ch_faktors(char **map, t_s *game);
-void	check_line(char **line);
-void	check_walls(char **map);
+void	ch_col_ex_p(t_s *game);
+void	ch_h_w(t_s *game);
+void	ch_faktors(t_s *game);
+void	check_line(t_s *game);
+void	check_walls(t_s *game);
 ///////////flood_fill.c//
-char	**create_map_copy(t_s *game, char **map);
+char	**create_map_copy(t_s *game);
 void	flood(char **map, int y, int x, t_s *game);
-void	flood_fill(t_s *game, char **map);
+void	flood_fill(t_s *game);
 ///////////start_game.c//
 void	init_map_images(t_s *game);
 void	**xpm_image(t_s *game, char *path);
@@ -101,13 +101,13 @@ void	move(t_s *game, void **player, int direction);
 int 	key_managment(int keycode, t_s *game);
 // move_helper.c
 void	change_location_on_map(t_s *game, int direction, int option);
-void	is_win(t_s *game, void **player, void **exit, int direction, int win_lose);
+void	is_win(t_s *game, void **player, void **exit, int direction);
 bool	is_exit(t_s *game, int direction);
 bool	is_wall(t_s *game, int direction);
 void	check_if_collectible(t_s *game);
 // enemy.c
 void	change_enemy_location_on_map(t_s *game, int direction, int option);
-void	ch_enemy(char **map, t_s *game);
+void	ch_enemy(t_s *game);
 bool	is_wall_enemy(t_s *game, int direction);
 void	move_enemy(t_s *game, void **player, int direction);
 int		enemy(t_s *game);
@@ -127,17 +127,18 @@ int		enemy(t_s *game);
 # define FALSE 1 //wall
 
 # define BER_ERROR "Not '.ber' extension.\n"
-# define ARG_ERROR "Incorect ammount of arguments.\n"
+# define ARG_ERROR "Incorrect amount of arguments.\n"
 # define FD_ERROR "FD Error.\n"
-# define COLL_ERROR "Can't reach all collectales.\n"
+# define COLL_ERROR "Can't reach all collectables.\n"
 # define EX_ERROR "Can't reach Exit.\n"
 # define WALL_ERROR "No border walls.\n"
-# define SIMB_ERROR "Forbiden simbols on map.\n"
-# define REC_ERROR "Not rectanlular map.\n"
-# define LETTER_ERROR "Incorect ammount of letters (P,C,E).\n"
+# define SIMB_ERROR "Forbidden symbols on map.\n"
+# define REC_ERROR "Not rectangular map.\n"
+# define LETTER_ERROR "Incorrect amount of letters (P,C,E).\n"
 # define BLOCKED_ERROR "Exit is blocked.\n"
 # define IMAGE_ERROR "One of your sprites could not be opened.\n"
 # define EMPTY_ERROR "Map ERROR.\n"
 # define WOW_ERROR "Stop breaking my game plz).\n"
+# define ENEMY_ERROR "One enemy is enough"
 
 #endif

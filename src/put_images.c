@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:57:45 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/17 20:46:41 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:57:39 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 void	put_image(t_s *game, void **image, int x, int y)
 {
-	mlx_put_image_to_window
-		(game->point.mlx, game->point.window, image, x * SIZE, y * SIZE);
+	mlx_put_image_to_window(game->point.mlx, game->point.window, image, x
+		* SIZE, y * SIZE);
 }
 
 void	put_image_direction(t_s *game, void **image, int direction)
 {
 	if (direction == 0)
-		mlx_put_image_to_window
-		(game->point.mlx, game->point.window, image, game->x * SIZE, game->y * SIZE);
+		mlx_put_image_to_window(game->point.mlx, game->point.window, image,
+			game->x * SIZE, game->y * SIZE);
 	else if (direction == LEFT)
-		mlx_put_image_to_window
-		(game->point.mlx, game->point.window, image, (game->x + 1) * SIZE, game->y * SIZE);
+		mlx_put_image_to_window(game->point.mlx, game->point.window, image,
+			(game->x + 1) * SIZE, game->y * SIZE);
 	else if (direction == RIGHT)
-		mlx_put_image_to_window
-		(game->point.mlx, game->point.window, image, (game->x - 1) * SIZE, game->y * SIZE);
+		mlx_put_image_to_window(game->point.mlx, game->point.window, image,
+			(game->x - 1) * SIZE, game->y * SIZE);
 	else if (direction == DOWN)
-		mlx_put_image_to_window
-		(game->point.mlx, game->point.window, image, game->x * SIZE, (game->y - 1) * SIZE);
+		mlx_put_image_to_window(game->point.mlx, game->point.window, image,
+			game->x * SIZE, (game->y - 1) * SIZE);
 	else if (direction == UP)
-		mlx_put_image_to_window
-		(game->point.mlx, game->point.window, image, game->x * SIZE, (game->y + 1) * SIZE);
+		mlx_put_image_to_window(game->point.mlx, game->point.window, image,
+			game->x * SIZE, (game->y + 1) * SIZE);
 }
 
 void	destroy_if_not_null(t_s *game, void **image)

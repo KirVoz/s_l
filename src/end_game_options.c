@@ -6,11 +6,27 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:32:16 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/18 17:38:40 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/20 18:06:11 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	if (map == NULL)
+		return ;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+	map = NULL;
+}
 
 int	end_game(t_s *game)
 {

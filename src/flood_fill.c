@@ -6,13 +6,13 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:27:25 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/19 22:46:33 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/20 17:56:32 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-char	**create_map_copy(t_s *game, char **map)
+char	**create_map_copy(t_s *game)
 {
 	char	**map_copy;
 	int		i;
@@ -30,7 +30,7 @@ char	**create_map_copy(t_s *game, char **map)
 				free(map_copy[i--]);
 			free(map_copy);
 		}
-		ft_strncpy(map_copy[i], map[i], game->width + 1);
+		ft_strncpy(map_copy[i], game->map[i], game->width + 1);
 	}
 	map_copy[i] = NULL;
 	return (map_copy);
@@ -66,12 +66,12 @@ void	flo_fil(char **map, int y, int x, t_s *game)
 	}
 }
 
-bool	exit_flood(t_s *game, char **map)
+bool	exit_flood(t_s *game)
 {
-	char **map_copy;
-	
+	char	**map_copy;
+
 	game->temp = game->collectabe;
-	map_copy = create_map_copy(game, map);
+	map_copy = create_map_copy(game);
 	flo_fil(map_copy, game->y, game->x, game);
 	free_map(map_copy);
 	if (game->temp != 0)
@@ -79,18 +79,18 @@ bool	exit_flood(t_s *game, char **map)
 	return (false);
 }
 
-void	flood_fill(t_s *game, char **map)
+void	flood_fill(t_s *game)
 {
-	char **map_copy;
+	char	**map_copy;
 
 	game->temp = game->collectabe;
-	map_copy = create_map_copy(game, map);
+	map_copy = create_map_copy(game);
 	flood(map_copy, game->y, game->x, game);
 	free_map(map_copy);
 	if (game->temp != 0)
-		exit_error (COLL_ERROR);
+		exit_error(COLL_ERROR);
 	if (game->exit != 0)
-		exit_error (EX_ERROR);
-	if (exit_flood(game, map))
-		exit_error (BLOCKED_ERROR);
+		exit_error(EX_ERROR);
+	if (exit_flood(game))
+		exit_error(BLOCKED_ERROR);
 }

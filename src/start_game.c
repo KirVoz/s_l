@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:57:20 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/20 16:27:47 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:57:44 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	init_xpms(t_s *game)
 	game->point.arrow = xpm_image(game, "./assets/arrow.xpm");
 	game->point.bonus_background = xpm_image(game, "./assets/bonus_back.xpm");
 	game->point.enemy_up = xpm_image(game, "./assets/fox_up.xpm");
-	game->point.enemy_right = xpm_image(game, "./assets/fox_right.xpm"); 
-	game->point.enemy_down = xpm_image (game, "./assets/fox_down.xpm");
+	game->point.enemy_right = xpm_image(game, "./assets/fox_right.xpm");
+	game->point.enemy_down = xpm_image(game, "./assets/fox_down.xpm");
 	game->point.enemy_left = xpm_image(game, "./assets/fox_left.xpm");
 	game->point.enemy_still = xpm_image(game, "./assets/fox_still.xpm");
 }
@@ -66,7 +66,7 @@ void	init_map_images(t_s *game)
 	{
 		y = 0;
 		while (y < game->width)
-		{	
+		{
 			put_image(game, game->point.ground, y, x);
 			if (game->map[x][y] == 'P')
 				put_image(game, game->point.play, y, x);
