@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:57:20 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/18 20:55:43 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:27:47 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	init_xpms(t_s *game)
 	game->point.enemy_right = xpm_image(game, "./assets/fox_right.xpm"); 
 	game->point.enemy_down = xpm_image (game, "./assets/fox_down.xpm");
 	game->point.enemy_left = xpm_image(game, "./assets/fox_left.xpm");
-	game->point.enemy_still = xpm_image(game, "./assets/collectable.xpm");
+	game->point.enemy_still = xpm_image(game, "./assets/fox_still.xpm");
 }
 
 void	init_map_images(t_s *game)

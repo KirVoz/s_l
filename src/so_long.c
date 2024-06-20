@@ -6,7 +6,7 @@
 /*   By: kvoznese <kvoznese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 10:19:05 by kvoznese          #+#    #+#             */
-/*   Updated: 2024/06/18 17:41:40 by kvoznese         ###   ########.fr       */
+/*   Updated: 2024/06/19 23:11:12 by kvoznese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int ac, char **av)
     if (ac != 2)
         exit_error (ARG_ERROR);
 	init(av, &game);
+	system("leaks so_long");
 	start_game(&game);
     return (0);
 }
